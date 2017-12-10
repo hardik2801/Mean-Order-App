@@ -1,0 +1,15 @@
+.products-main {
+    max-height: 650px;
+    overflow: scroll;
+}
+
+.product-sizes {
+    border: 1px solid grey;
+    width: fit-content;
+    padding: 5px;
+    margin-right:  5px; 
+}
+
+.products-rep {
+    cursor: pointer;
+}

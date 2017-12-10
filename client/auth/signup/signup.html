@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="signup">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>::.Welcome.::</title>
+    <link href="/resources/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/signupresources/css/style.css" rel="stylesheet">
+    <link href="/signupresources/css/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="/resources/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/resources/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/signupresources/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="/resources/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/signupresources/js/signup.js"></script>
+    <script type="text/javascript" src="/resources/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="signupCtrl">
+    <section class="buzz-page" id="basic-details" ng-if="!done">
+        <div class="buzz-header">
+            <div class="buzz-header-sub">
+                Enrich your
+            </div>
+            <div class="buzz-header-main">
+                Profile
+            </div>
+        </div>
+        <div class="buzz-content hidden-scroll">
+            <div class="buzz-sub-text text-center buzz-form-title">
+                Start by confirming your basic details
+            </div>
+            <div class="buzz-form-container">
+                <div class="buzz-input-container">
+                    <input type="text" class="buzz-input" placeholder="Name*" ng-model="influencer.name">
+                    <div class="buzz-form-error">{{ errors.name }}</div>
+                </div>
+                <div class="buzz-input-container">
+                    <input type="text" class="buzz-input" placeholder="Mobile*" ng-model="influencer.phone">
+                    <div class="buzz-form-error">{{ errors.phone }}</div>
+                </div>
+                <div class="buzz-input-container">
+                    <input type="text" class="buzz-input" placeholder="Email*" ng-model="influencer.email">
+                    <div class="buzz-form-error">{{ errors.email }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="buzz-footer text-center">
+            <div class="ts-text">
+                By clicking this button you agree to our 
+                <span class="ts-btn" data-toggle="modal" data-target="#terms-of-service">terms of service</span>
+                and 
+                <span class="ts-btn" data-toggle="modal" data-target="#privacy_policy">privacy policy</span>.
+            </div>
+            <div class="btn btn-default footer-btn full" ng-click="updateContactDetails($event)">Submit</div>
+        </div>
+    </section>
+    <!---->
+    <div class="modal fade" id="terms-of-service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="ts-modal-btn" onclick="$('#terms-of-service').modal('hide')"><span class="glyphicon glyphicon-remove"></span></div>
+            <iframe src="/terms_of_service" style="height : 500px; height: 90vh; width : 100%; border:none"></iframe>
+        </div>
+    </div>
+    <div class="modal fade" id="privacy_policy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="ts-modal-btn" onclick="$('#privacy_policy').modal('hide')"><span class="glyphicon glyphicon-remove"></span></div>
+            <iframe src="/privacy_policy" style="height : 500px; height: 90vh; width : 100%; border:none"></iframe>
+        </div>
+    </div>
+    <!---->
+    <section class="buzz-page" id="social-connect" ng-if="signupStage > 0 && !done">
+        <div class="buzz-content buzz-form-content" style="overflow:auto">
+            <div class="buzz-form-group">
+                <div class="buzz-form-heading">
+                  Where else do you post ?<span class="buzz-heading-optional">optional</span>
+                </div>
+                <div class="buzz-form-body">
+                    <!--<div class="buzz-form-heading">
+                       Facebook
+                    </div>-->
+                    <div class="row" style="padding: 15px;padding-top:10px">
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            Facebook
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="text-align:right;padding: 0px">   
+                            <div style="display: inline">
+                                <div  style="display: inline;margin:0 5px">
+                                    <input type="radio"  name="type" value="profile"  ng-model="fbFlag" ng-change="switchFbLink($event,'profile')" checked><label style="padding-left: 5px;">Profile</label>
+                                </div>
+                            </div>
+                            <div style="display: inline">
+                                <div  style="display: inline">
+                                    <input  type="radio" name="type" value="page" ng-model="fbFlag" ng-change="switchFbLink($event,'page')"><label style="padding-left: 5px;">Page</label>
+                                </div>
+                            </div>
+                        </div >
+                        <div>
+                            <input type="fb" class="buzz-input" placeholder="https://www.facebook.com/link" ng-model="temp.facebook">
+                            <div class="buzz-form-error">{{ errors.facebookLink }}</div>
+                        </div>
+                        <div>
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            Instagram
+                        </div>
+                        
+                        <div>
+                            <input type="fb" class="buzz-input" placeholder="https://www.instagram.com/profile" ng-model="influencer.instagram.link">
+                            <div class="buzz-form-error">{{ errors.instagramLink }}</div>
+                        </div>
+                        <div>
+                            <i class="fa fa-file-text" aria-hidden="true"></i>
+                            Blog
+                        </div>
+                        <div>
+                            <input type="fb" class="buzz-input" placeholder="https://www.blogsite.com" ng-model="influencer.blog.link">
+                            <div class="buzz-form-error">{{ errors.blogLink }}</div>
+                        </div>
+                        <!--<div>
+                            <i class="fa fa-scribd" aria-hidden="true"></i>
+                            Snapchat
+                        </div>
+                        <div>
+                            <input type="fb" class="buzz-input" placeholder="https://www.snapchat.com/profile" ng-model="influencer.snapchat.link">
+                            <div class="buzz-form-error">{{ errors.name }}</div>
+                        </div>-->
+                        <div>
+                            <i class="fa fa-youtube-square" aria-hidden="true"></i>
+                            Youtube
+                        </div>
+                        <div>
+                            <input type="fb" class="buzz-input" placeholder="https://www.youtube.com/profile" ng-model="influencer.youtube.link">
+                            <div class="buzz-form-error">{{ errors.youtubeLink }}</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="buzz-footer text-center">
+            <!--<span style="color:red;text-align:center;font-size: 85%;">We can recommend the right campaigns only if we know you better. Click away!</span>-->
+            <div style="margin-top:15px;" class="btn btn-default footer-btn"  ng-click="updateSocialData($event)">Submit</div>
+             <!--<div class="btn btn-default footer-btn full" ng-click="updateSocialData($event)">Submit</div>-->
+            <div style="margin-top:15px;" class="btn btn-default footer-skip-btn" ng-click="skipSocialData($event)">Skip</div>
+        </div>
+        <!--<div class="buzz-footer text-center">
+            <div class="btn btn-default footer-btn full" ng-click="updateSocialData($event)">Submit</div>
+        </div>-->
+    </section>
+    <section class="buzz-page" id="age-gender" ng-if="signupStage > 1 && !done">
+        <div class="buzz-content buzz-form-content">
+            <div class="buzz-form-group">
+                <div class="buzz-form-heading">
+                    <i class="fa fa-mars"></i> Gender
+                </div>
+                <div class="buzz-form-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.gender" ng-true-value="'male'" ng-false-value="'male'">Male</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.gender" ng-true-value="'female'" ng-false-value="'female'">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buzz-form-group">
+                <div class="buzz-form-heading">
+                    <i class="fa fa-user"></i> Age Group
+                </div>
+                <div class="buzz-form-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.age_group" ng-true-value="'below18'" ng-false-value="'below18'">below 18 years</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.age_group" ng-true-value="'g18to25'" ng-false-value="'g18to25'">18-25 years</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.age_group" ng-true-value="'g26to35'" ng-false-value="'g26to35'">26-35 years</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.age_group" ng-true-value="'g36to45'" ng-false-value="'g36to45'">36-45 years</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.age_group" ng-true-value="'g46to58'" ng-false-value="'g46to58'">46-58 years</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" class="buzz-form-checkbox" ng-model="influencer.age_group" ng-true-value="'above58'" ng-false-value="'above58'">above 58 years</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buzz-form-group">
+                <div class="buzz-form-heading">
+                    <i class="fa fa-globe"></i> Location
+                </div>
+                <div class="buzz-form-body">
+                    <div class="buzz-input-container" style="margin-top : 10px; width : 100%">
+                        <div>State</div>
+                        <div uib-dropdown class="dropup">
+                            <input uib-dropdown-toggle type="text" class="buzz-input" ng-change="isValidState()" ng-model="influencer.state" placeholder="Type here" style="text-transform:capitalize;" readonly>
+                            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="state dropdown">
+                                <li ng-repeat="state in states" ng-click="selectState(state)">
+                                    {{state}}
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div ng-if="stateSelected == true;" style="margin-bottom : 20px;">
+                            <div style="margin-top : 10px;">City</div>
+                            <div uib-dropdown class="dropup">
+                                <input uib-dropdown-toggle type="text"  class="buzz-input" ng-change="errors.location = null;" ng-model="influencer.city" placeholder="Type here" style="text-transform:capitalize;" readonly>
+                                <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="city dropdown">
+                                    <li ng-repeat="city in cities" ng-click="influencer.city = city;">
+                                        {{city}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="buzz-form-error" style="text-align:center"> {{ errors.location }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buzz-footer text-center">
+            <div class="btn btn-default footer-btn full" ng-click="updateBasicDetails($event)">Submit</div>
+        </div>
+    </section>
+
+    <!--ng-if="signupStage > 1"-->
+    
+    <section class="buzz-page" id="domains" ng-if="signupStage > 2 && !done">
+        <div class="buzz-content buzz-form-content hidden-scroll" style="padding-top:0">
+            <div class="buzz-form-group-full">
+                <div class="buzz-form-heading-full">
+                    What do you like/talk about?
+                    <div class="buzz-form-heading-sub">(Select your areas of influence)</div>
+                </div>
+                <div class="buzz-form-body-full">
+                    <div class="panel-group" id="buzz-accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default buzz-acc-container" ng-repeat="domain in domains | orderBy: 'name'">
+                            <a role="button" data-toggle="collapse" data-parent="#buzz-accordion" aria-expanded="true" aria-controls="collapse{{$index}}">
+                                <div class="panel-heading buzz-acc-heading" role="tab" id="heading{{ $index }}" ng-click="toggleDomain(domain, $event)">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-1 col-xs-2">
+                                            <input type="checkbox" class="checkbox" ng-model="d" ng-checked="isDomainSelected(domain)" ng-click="toggleDomain(domain, $event)">
+                                        </div>
+                                        <div class="col-md-10 col-sm-10 col-xs-8 buzz-acc-text">
+                                            <capitalize text="{{ domain.name }}"></capitalize>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--<div style="margin-top:4px;text-align:center;font-size: 85%;">We can recommend the right campaigns only if we know you better. Click away!</div>-->
+                <div class="buzz-form-error" style="text-align:center">{{ errors.domain }}</div>
+            </div>
+        </div>
+        <div class="buzz-footer text-center">
+            <div style="margin-top:15px;" class="btn btn-default footer-btn full" ng-click="updateDomains($event)">Submit</div>
+        </div>
+    </section>
+    <section class="buzz-page" id="professions" ng-if="signupStage > 3 && !done">
+        <div class="buzz-content buzz-form-content hidden-scroll" style="padding-top:0">
+            <div class="buzz-form-group-full">
+                <div class="buzz-form-heading-full">
+                    What do you do?<span class="buzz-heading-optional">optional</span>
+                    <div class="buzz-form-heading-sub">(Select your profession/s)</div>
+                </div>
+                <div class="buzz-form-body-full">
+                    <div class="panel-group" id="buzz-profession-accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default buzz-acc-container" ng-repeat="profession in professions | orderBy: 'name'" ng-click="toggleProfession(profession)">
+                            <a role="button" data-toggle="collapse" data-parent="#buzz-profession-accordion" href="#collapse-profession-{{ $index }}"
+                                aria-expanded="true" aria-controls="collapse-profession-{{$index}}">
+                                <div class="panel-heading buzz-acc-heading" role="tab" id="heading{{ $index }}">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-1 col-xs-2">
+
+                                            <input ng-if="profession.sub_professions.length <= 0" ng-click="$event.stopPropagation();toggleProfession(profession)" type="checkbox"
+                                                class="checkbox" ng-model="a" ng-checked="isProfessionSelected(profession)" ng-change="deselectProfession(profession)">
+
+                                            <input ng-if="profession.sub_professions.length > 0" type="checkbox" class="checkbox" ng-model="a" ng-checked="isProfessionSelected(profession)"
+                                                ng-change="deselectProfession(profession)">
+
+                                        </div>
+                                        <div class="col-md-10 col-sm-10 col-xs-8 buzz-acc-text">
+                                            <capitalize text="{{ profession.name }}"></capitalize>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-2">
+                                            <i class="fa fa-angle-down" ng-if="profession.sub_professions.length > 0"></i>
+                                            <!--<i class="fa fa-angle-up" ng-if="profession.sub_professions.length > 0 && selectedProfessionAccordion === $index"></i>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div ng-if="profession.sub_professions.length > 0" id="collapse-profession-{{ $index }}" class="panel-collapse collapse"
+                                role="tabpanel" aria-labelledby="heading{{ $index }}" ng-class="{'in' : $first }">
+                                <div class="panel-body buzz-acc-body">
+                                    <span class="buzz-acc-pill" ng-repeat="child in profession.sub_professions" ng-click="toggleSubProfession(profession, child)"
+                                        ng-class="{'active' : isSubProfessionSelected(profession, child) }">
+                                        <capitalize text="{{ child.name }}"></capitalize>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:4px;text-align:center;font-size: 85%;">We can recommend the right campaigns only if we know you better. Click away!</div>
+                <div class="buzz-form-error" style="text-align:center">{{ errors.profession }}</div>
+            </div>
+        </div>
+        <div class="buzz-footer text-center">
+            <!--<span style="color:red;text-align:center;font-size: 85%;">We can recommend the right campaigns only if we know you better. Click away!</span>-->
+            <div style="margin-top:15px;" class="btn btn-default footer-btn" ng-click="updateProfessions($event)">Submit</div>
+            <div style="margin-top:15px;" class="btn btn-default footer-skip-btn" ng-click="skipProfessions($event)">Skip</div>
+        </div>
+    </section>
+    <section class="buzz-page" id="interests" ng-if="signupStage > 4 && !done">
+        <div class="buzz-content buzz-form-content hidden-scroll" style="padding-top:0">
+            <div class="buzz-form-group-full">
+                <div class="buzz-form-heading-full">
+                    What are your interests?<span class="buzz-heading-optional">optional</span>
+                    <div class="buzz-form-heading-sub">(hobbies)</div>
+                </div>
+                <div class="buzz-form-body-full">
+                    <div class="panel-group" id="buzz-interest-accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default buzz-acc-container" ng-repeat="interest in interests | orderBy: 'name'" ng-click="toggleInterest(interest)">
+                            <a role="button" data-toggle="collapse" data-parent="#buzz-interest-accordion" href="#collapse{{ $index }}" aria-expanded="true"
+                                aria-controls="collapse{{$index}}">
+                                <div class="panel-heading buzz-acc-heading" role="tab" id="heading{{ $index }}">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-1 col-xs-2">
+
+                                            <input ng-if="interest.sub_interests.length <= 0" ng-click="$event.stopPropagation(); toggleInterest(interest)" type="checkbox"
+                                                class="checkbox" ng-model="a" ng-checked="isInterestSelected(interest)" ng-change="deselectInterest(profession)">
+
+                                            <input ng-if="interest.sub_interests.length > 0" type="checkbox" class="checkbox" ng-model="a" ng-checked="isInterestSelected(interest)"
+                                                ng-change="deselectInterest(profession)">
+                                        </div>
+                                        <div class="col-md-10 col-sm-10 col-xs-8 buzz-acc-text">
+                                            <capitalize text="{{ interest.name }}"></capitalize>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-2">
+                                            <i class="fa fa-angle-down" ng-if="interest.sub_interests.length > 0"></i>
+                                            <!--<i class="fa fa-angle-up" ng-if="profession.sub_professions.length > 0 && selectedProfessionAccordion === $index"></i>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div ng-if="interest.sub_interests.length > 0" id="collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading{{ $index }}" ng-class="{'in' : $first }">
+                                <div class="panel-body buzz-acc-body">
+                                    <span class="buzz-acc-pill" ng-repeat="child in interest.sub_interests" ng-click="toggleSubInterest(interest, child)" ng-class="{'active' : isSubInterestSelected(interest, child) }">
+                                        <capitalize text="{{ child.name }}"></capitalize>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:4px;text-align:center;font-size: 85%;">We can recommend the right campaigns only if we know you better. Click away!</div>
+            </div>
+        </div>
+        <div class="buzz-footer text-center">
+            <!--<div class="btn btn-default footer-btn" ng-click="updateInterests($event)">Submit</div>
+            <div class="btn btn-default footer-skip-btn" ng-click="skipInterests($event)">Skip</div>-->
+            <div style="margin-top:15px;" class="btn btn-default footer-btn full" ng-click="finish($event)">Finish</div>
+        </div>
+    </section>
+    <section class="buzz-page" id="thankyou" ng-if="signupStage > 5 || done">
+        <div class="buzz-header">
+            <div class="buzz-header-sub">
+                Thank you
+            </div>
+            <div class="buzz-header-main">
+                {{ influencer.name.split(' ')[0] }}
+            </div>
+        </div>
+        <div class="buzz-content hidden-scroll">
+            <div class="buzz-thanks">
+                <div class="buzz-thanks-text">You are now an integral part of the biggest influencer marketing platform in India.</div>
+                <div class="buzz-thanks-text">Our team will contact you shortly with the appropriate campaign.</div>
+                <div class="buzz-thanks-text">Have a great day!</div>
+                <i class="fa fa-smile-o fa-5x"></i>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

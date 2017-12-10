@@ -1,0 +1,573 @@
+/* generic */
+
+body {
+    margin : 0;
+    font-family: 'Open Sans';
+    background: url('../img/bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color : #666666;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.buzz-page {
+    height : 100%;
+    height : 100vh;        
+    padding-top : 5vh;
+}
+
+.buzz-header {
+    height : 15%;
+    text-align: center;
+    padding : 3%;
+}
+
+.buzz-header-sub {
+    height : 40%;
+    font-size: large;
+    text-transform: uppercase;    
+}
+
+.buzz-header-main {
+    height : 60%;
+    font-size: xx-large;
+    font-weight: bold;
+    text-transform: uppercase;
+    color : #d2b057;
+}
+
+.buzz-content {
+    height : 75%;
+    padding : 10%;
+    overflow-y: scroll;
+}
+
+.buzz-sub-text {
+    font-size: small;
+    color : #666666;
+    text-transform: none;    
+}
+
+.buzz-footer {
+    height : 10%;
+}
+
+.footer-btn {
+    width : 30%;
+    background-color: #d2b057;
+    color : white;
+}
+
+.footer-btn.full {
+    width : 40%;
+}
+
+.footer-skip-btn{
+    width : 30%;
+}
+
+.footer-btn:hover {
+    color : #d2b057;
+    background: white;
+}
+
+.buzz-nav-arrow {
+    text-align: center;
+    height: 100%;
+    padding : 15px;
+    cursor: pointer;
+    color : black;
+}
+
+.buzz-input {
+    border-radius: 0;
+    border : 1px solid #adadad;
+    background: transparent;
+    padding : 5px;
+    padding-left: 15px;
+    font-size: small;
+    width : 100%;
+    height : 40px;
+}
+
+.buzz-form-title {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/* section specific */
+
+/* welcome section ------------------------------*/
+.influencer-img-container {    
+    margin: 10px auto;    
+}
+
+.influencer-img-container > img {
+    height : 100%;
+    width : 100%;
+    padding : 5px;
+    border-radius: 50%;
+    background-image: -moz-linear-gradient( 90deg, rgb(220,196,136) 0%, rgb(255,255,255) 100%);  
+    background-image: -webkit-linear-gradient( 90deg, rgb(220,196,136) 0%, rgb(255,255,255) 100%);  
+    background-image: -ms-linear-gradient( 90deg, rgb(220,196,136) 0%, rgb(255,255,255) 100%);  
+    /*box-shadow: -1.5px 2.598px 1px 0px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-container {
+    width : 90%;
+    margin : 10% auto;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.welcome-main {
+    color : black;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.welcome-sub {
+    color : #d2b057;
+    font-size: x-large;
+}
+
+.welcome-base {
+    margin : 0 10%;
+    margin-top : 5%;
+}
+
+/* influencer data --------------------*/
+
+.buzz-metric-content {
+    padding-top : 5%;
+    padding-bottom: 5%;
+}
+
+.buzz-areas-influence {
+    height : 10%;
+    text-align: center;
+    color : #666666;
+}
+
+.buzz-areas-heading {
+    text-transform: uppercase;    
+    font-size: x-small;
+}
+
+.buzz-areas-text {
+    font-weight: bold;   
+}
+
+.buzz-metrics {
+    margin: 0 auto;
+    height : 90%;    
+}
+
+.buzz-metrics > div {
+    padding : 10px 10px;
+}
+
+.buzz-metric-holder {
+    height : 100px;
+    max-height: 150px;
+    border: 1px solid #adadad;
+    text-align: center;
+    padding : 10px;
+}
+
+
+.buzz-metric-icon{
+    height: 50%;
+    padding : 3%;
+}
+
+.buzz-metric-value {
+    height : 25%;
+    font-size: large;
+    color : #d2b057;
+}
+
+.buzz-metric-label {
+    height : 22%;
+    padding-top: 3%;
+    font-size: small;    
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.buzz-metric-holder:hover, .buzz-metric-holder:hover * {
+    background-color: #d2b057;
+    color : white;
+}
+
+
+/*whyjoin */
+.whyjoin-container {
+    margin : 10% 10%;
+}
+
+.buzz-why-join-text {
+    font-size: medium;    
+}
+
+.buzz-why-join-text > p {
+    text-align: left;
+    padding : 20px 0;
+    margin : 0 20px;
+    border-bottom : 1px solid #d2b057;
+}
+
+
+/* benefits section ------------------------------*/
+.benefits-container {
+    height : 100%;
+    margin: auto;
+}
+
+.benefits-list {
+    list-style: none;
+    height : 100%;
+    width : 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.benefits-list > li {
+    padding : 5%;
+    color : #666666;
+    font-size: small;
+}
+
+.benefits-list-text {
+    padding-top: 7px;
+}
+
+.benefits-list-icon-container {
+    display: inline-block;    
+    border-radius: 50%;
+    color : #d2b057;
+    border : 1px solid #adadad;
+    width: 35px;
+    height: 35px;
+    padding-top : 3px;
+    font-size: 20px;    
+}
+
+/* social-connect ------------------------------*/
+.social-connect-container {    
+    margin: 5% auto;
+    padding : 10% 5%;       
+}
+
+.social-btn {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color : #666666;
+}
+
+.social-btn-icon {
+    display: inline-block;
+    width : 15%;
+    border-right: 1px solid #adadad;
+    padding-right: 5px; 
+    color : #666666;   
+}
+
+/*.fb-btn:hover {
+    background-color : #3E5D99;
+    color : white;
+    border : 1px solid #3E5D99;
+}
+
+.tw-btn:hover {
+    background-color: #36ABE2;
+    color : white;
+    border : 1px solid #36ABE2;
+}*/
+
+.social-btn-text {
+    display: inline-block;
+}
+
+/*  ADDITIONAL DETAILS CSS  ------------------------------*/
+
+.buzz-form-content{
+    height : 85%;
+    padding : 0% 10%;
+}
+
+.buzz-form-container {
+    padding : 10% 0;
+}
+
+.buzz-form-error {
+    color : red;
+    font-weight: lighter;
+    font-size: x-small;
+    height : 20px;
+}
+
+.buzz-input-container {
+    margin: auto;
+    padding-bottom : 20px;
+}
+
+.buzz-form-group {
+    /*padding-bottom: 5%;*/
+    margin: auto;
+}
+
+.buzz-form-heading {
+    border-bottom: 2px solid #d2b057;
+    padding : 10px;
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: bold;
+}
+
+.buzz-form-heading > i {
+    margin-right: 5%;
+}
+
+.buzz-form-heading-full {
+    font-size: medium;
+    border-bottom: 2px solid #d2b057;
+    padding : 10px;
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: bold;
+}
+
+.buzz-form-body {
+    padding : 10px;
+}
+
+.buzz-form-body-full {
+    height : 90%;
+    padding : 10px;
+    overflow-y: scroll;
+}
+
+.buzz-form-group-full {
+    padding-bottom: 5%;
+    margin: auto;
+    height : 100%;
+}
+
+.buzz-heading-optional {
+    font-size: x-small;
+    float : right;
+    padding-top : 5px;
+    color : green;
+}
+
+.buzz-form-heading-sub {
+    font-size: x-small;
+    
+}
+
+.buzz-acc-container {
+    border-radius: 0px !important;
+    border: none;
+    border-bottom: 1px solid #adadad;
+    background-color: transparent;
+    box-shadow: none;
+    color : #666666;
+}
+
+.buzz-acc-heading {
+    color : #666666;
+    cursor: pointer;
+}
+/* reduce padding in the col divs*/
+.buzz-acc-heading > div > div { 
+    padding : 0 10px 0 5px;
+}
+
+.buzz-acc-body {
+    padding : 5px;
+    width : 100%;
+}
+
+.buzz-acc-pill {
+    display: inline-block;
+    padding : 3px 5px;
+    margin: 2px;
+    border-radius: 3px;
+    background-color: #E9E9E9;
+    color : black;
+    font-size: small;
+    font-weight: bold;    
+    cursor: pointer;
+}
+
+.buzz-acc-pill.active {
+    color : white;
+    background-color: #d2b057;
+}
+
+.buzz-acc-text {
+    font-size: small;
+    height : 20px;
+    max-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.buzz-thanks {
+    margin : 50px auto;
+    text-align: center;
+}
+.buzz-thanks-text {
+    text-align: center;
+    font-size: medium;
+    margin : 5px 20px;
+}
+
+/* media queries */
+
+@media(min-width:320px) and (max-width:766px) {
+    .buzz-page {
+        width : 100vw;    
+    }
+    .influencer-img-container {
+        width : 50%;
+    }
+    .benefits-container {        
+        width : 100%;
+    }
+    .social-connect-container {
+        width : 100%;
+    }
+    .buzz-metrics {
+        width : 100%;
+    }
+    .buzz-input-container {
+        width : 100%;
+    }
+    
+    .buzz-form-title {
+        width : 90%;
+    }
+    
+    .buzz-form-group, .buzz-form-group-full {
+        width : 100%;
+    }
+}
+@media(min-width:767px) and (max-width:1024px){
+    .buzz-page {
+        width : 70vw;
+        margin: auto;
+    }
+    .influencer-img-container {
+        width : 40%;
+    }
+    .benefits-container {        
+        width : 90%;
+    }
+    .social-connect-container {
+        width : 80%;
+    }
+    .buzz-metrics {
+        width : 80%;
+    }
+    .buzz-input-container {
+        width : 75%;
+    }
+    
+    .buzz-form-title {
+        width : 70%;
+    }
+    
+    .buzz-form-group, .buzz-form-group-full {
+        width : 80%;
+    }
+}
+
+@media(min-width:1025px) {
+    .buzz-page {
+        width : 40vw;
+        margin: auto;
+    }    
+    .influencer-img-container {
+        width : 40%; 
+    }
+    .benefits-container {        
+        width : 80%;
+    }
+    .social-connect-container {
+        width : 70%;
+    }
+    .buzz-metrics {
+        width : 80%;
+    }
+    
+    .buzz-input-container {
+        width : 65%;
+    }
+    
+    .buzz-form-title {
+        width : 60%;
+    }
+    
+    .buzz-form-group , .buzz-form-group-full{
+        width : 80%;
+    }
+}
+
+.dropdown-menu {
+    border-radius: 0px !important;
+    margin:0px;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.dropdown-menu li {
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.hidden-scroll {
+    overflow: hidden;
+}
+
+.dropdown-menu li:hover {
+    background: #F8F7F2;
+}
+
+/*font-size:xx-small;text-align:center; position : absolute; bottom : 0*/
+
+.ts-text {    
+    padding : 0 10%;
+    text-align: center;
+    font-size: xx-small;
+    padding-bottom: 10px;
+}
+
+.ts-btn {
+    text-decoration: underline;
+    color : blue;
+    cursor: pointer;
+}
+
+.ts-modal-btn {
+    position: absolute;
+    top : 0px;
+    right : 0px;
+    padding : 5px;
+    cursor: pointer;
+}

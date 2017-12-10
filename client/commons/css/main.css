@@ -1,0 +1,35 @@
+.form-signin {
+  max-width: 330px;
+  margin: 0 auto;
+  padding: 15px; }
+
+#inputEmail {
+  margin-bottom: 5px; }
+
+#inputPassword {
+  margin-bottom: 5px; }
+
+.manual-header {
+  margin-left: 45%;
+  font-size: 24px; }
+
+.footer-bottom {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 24px; }
+
+.products-main {
+  max-height: 650px;
+  overflow: scroll; }
+
+.product-sizes {
+  border: 1px solid grey;
+  width: fit-content;
+  padding: 5px;
+  margin-right: 5px; }
+
+.products-rep {
+  cursor: pointer; }
+
+/*# sourceMappingURL=main.css.map */

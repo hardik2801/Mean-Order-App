@@ -1,0 +1,35 @@
+{
+  "name": "orderapp",
+  "version": "1.0.0",
+  "description": "app to take orders in a store",
+  "main": "index.js",
+  "scripts": {
+    "test": "test orderapp"
+  },
+  "author": "Hardik Shah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "express-static": "^1.2.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-express-server": "^0.5.3",
+    "grunt-nodemon": "^0.4.2",
+    "http-auth": "^3.2.3",
+    "jit-grunt": "^0.10.0",
+    "load-grunt-tasks": "^3.5.2",
+    "mongoose": "^4.13.6",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7",
+    "time-grunt": "^1.4.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1"
+  }
+}

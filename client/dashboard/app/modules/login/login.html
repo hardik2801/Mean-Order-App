@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="form-signin">
+        <!-- <h2 class="form-signin-heading">Please sign in {{loginCtrl.data}}</h2> -->
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="inputEmail" ng-model="loginCtrl.userEmail" class="form-control" placeholder="Email address">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" ng-model="loginCtrl.userPassword" class="form-control" placeholder="Password">
+        <span class="error" ng-if="loginCtrl.userErr">Invalid Username or Password</span>
+        <div class="btn btn-lg btn-primary btn-block" type="submit" ng-click="loginCtrl.authUser()">Sign in</div>
+    </div>
+</div>
