@@ -1,0 +1,44 @@
+<div class="container products-main">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div ng-repeat="product in cartCtrl.mainCart" ng-click="cartCtrl.openModal(product)" class="products-rep" ng-if="!cartCtrl.noProducts">
+                    <div class="row">
+                        <div class="col-xs-2"><img class="img-responsive" ng-src="{{product.image}}"></div>
+                        <div class="col-xs-4">
+                            <h4 class="product-name"><strong>{{product.name}}</strong></h4><h4><small>{{product.inventory || 'Out of Stock'}}</small></h4><h4><small class="product-sizes" ng-repeat="size in product.sizes">{{size}}</small></h4>
+                        </div>
+                        <div><h4><small>Quantity : {{product.quantity}}</small></h4></div>
+                        <div><i class="fa fa-trash-o" ng-click="cartCtrl.removeProduct(product)"></i></div>
+                    </div>
+                    <hr>
+                </div>
+                <div ng-if="cartCtrl.noProducts" class="noproduct">
+                    <h4>No Products Selected</h4>
+                </div>
+                
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row text-center">
+                    <div class="col-xs-9">
+                        <button class="btn btn-success" ng-disabled="cartCtrl.noProducts || cartCtrl.noCustomer" ng-click="cartCtrl.createOrder()"> <span class="text-center">{{cartCtrl.productsQuant}} <i class="fa fa-ellipsis-v"></i> Charge <strong>$ {{cartCtrl.subtotal || 0}}</strong></span></button>
+                        <span ng-click="cartCtrl.addCust()"><i class="fa fa-plus-circle" style="font-size: 24px; margin-left: 15px; vertical-align:middle;"></i> Add Customer</span>
+                        <div  ng-if="!cartCtrl.noCustomer">
+                                <h4>Customer : <small>{{cartCtrl.customer.name}}</small></h4>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="add-customer" ng-if="cartCtrl.addCustomer">
+                    <input class="custname" ng-model="cartCtrl.customer.name" type="text" placeholder="Name">
+                    <input class="custname" ng-model="cartCtrl.customer.email" type="text" placeholder="Email">
+                    <input class="custname" ng-model="cartCtrl.customer.phone" type="text" placeholder="Phone">
+                    <button class="btn btn-success custname" ng-click="cartCtrl.submitCustomer()">Add</button>
+                    <span ng-if="cartCtrl.saveCustErr"> Oops, Something went wrong, Please try Again!!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

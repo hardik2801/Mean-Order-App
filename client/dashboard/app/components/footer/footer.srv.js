@@ -5,12 +5,8 @@ define([
     function footerSrv(Restangular){
         Restangular = restConfig(Restangular);
         
-        // function getUser(){
-        //     return Restangular.one('/account/user').customGET();
-        // }
-        
         return {
-        //    getUser : getUser
+        
         };              
     }    
     

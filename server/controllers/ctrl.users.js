@@ -20,7 +20,4 @@ function getUser(req, res){
             return res.json(ResponseUtils.responseMessage(false, "No User Found"));
         }
     });
-
-
-    // return res.json(ResponseUtils.responseMessage(true, 'successfully invokeapi'));
 }

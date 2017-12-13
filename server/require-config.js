@@ -17,11 +17,15 @@ module.exports = {
     //apis
     'api.users'                     : 'api/api.users',
     'api.products'                  : 'api/api.products',
+    'api.cart'                      : 'api/api.cart',
+    'api.orders'                    : 'api/api.orders',
 
 
     //controllers
     'ctrl.users'                    : 'controllers/ctrl.users',
     'ctrl.products'                 : 'controllers/ctrl.products',
+    'ctrl.cart'                     : 'controllers/ctrl.cart',
+    'ctrl.orders'                   : 'controllers/ctrl.orders',
 
 
 };

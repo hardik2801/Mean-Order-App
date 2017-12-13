@@ -11,7 +11,6 @@ define([
             $cookies = _$cookies_;
           }]);
 
-        // var serviceHelper = headerSrv(Restangular);
         vm.gotoCart = function() {
             $state.go('home.cart', {}, { reload: true });
         };

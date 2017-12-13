@@ -1,9 +1,13 @@
 define([
     'loginModule',
-    'productsModule'
-], function(loginModule, productsModule) {
+    'productsModule',
+    'cartModule',
+    'ordersModule'
+], function(loginModule, productsModule, cartModule, ordersModule) {
     return {
         login : loginModule,
-        products : productsModule
+        products : productsModule,
+        cart : cartModule,
+        orders : ordersModule
     };
 });

@@ -2,11 +2,8 @@
         <h6 class="modal-title">Select Size</h6>
     </div>
     <div class="modal-body">
-       <div>
-           <div>Small</div>
-           <div>Medium</div>
-           <div>Large</div>
-           <div>X-Large</div>
+       <div ng-repeat="size in openModalCtrl.product.sizes">
+           <div ng-click="openModalCtrl.selectSize(size)">{{size}}</div>
        </div>
        
     </div>

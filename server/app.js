@@ -27,14 +27,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-var sessionConfig = {
-    secret : '95b05fbb1aa74c04ca2e937d43a059xu',
-	resave : false,
-	saveUninitialized : false
-};
-
-app.use(session(sessionConfig));
-
 app.use(function (err, req, res, next){
     if(err){
         console.log('error in connection');

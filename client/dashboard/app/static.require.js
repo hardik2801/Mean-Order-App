@@ -9,6 +9,8 @@ define([
             'login'     :   'modules/login/login.html',
             'products'  :   'modules/products/products.html',
             'openModal' :   'modules/modals/openModal.html',
+            'cart'      :   'modules/cart/cart.html',
+            'orders'      :   'modules/orders/orders.html',
     
             //components
             'header'    : 'components/header/header.html',

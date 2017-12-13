@@ -3,11 +3,13 @@
         <div class="col-md-12">
             <div class="panel panel-info">
                 <div class="panel-body">
-                    <div ng-repeat="product in productsCtrl.allProducts" ng-click="productsCtrl.openModal(product)" class="products-rep">
+                    <div ng-repeat="order in ordersCtrl.allOrders" class="products-rep">
                     <div class="row">
-                        <div class="col-xs-2"><img class="img-responsive" ng-src="{{product.image}}"></div>
+                        <div class="col-xs-2"><img class="img-responsive" ng-src="{{order.products[0].image}}"></div>
                         <div class="col-xs-4">
-                            <h4 class="product-name"><strong>{{product.name}}</strong></h4><h4><small>{{product.inventory + ' in Stock' || 'Out of Stock'}}</small></h4><h4><small class="product-sizes" ng-repeat="size in product.sizes">{{size}}</small></h4>
+                            <h4>{{order.customer.name}}</h4>
+                            <h6 class="product-name">Number of Products: {{order.products.length}}</h6>
+                            <h6>{{order.createdon | date :'dd/MM/yyyy hh:mm:ss a' }}</h6>
                         </div>
                     </div>
                     <hr>
@@ -17,7 +19,6 @@
             <div class="panel-footer">
                 <div class="row text-center">
                     <div class="col-xs-9">
-                        <h4 class="text-center">Subtotal <strong>$ {{productsCtrl.subtotal || 0}}</strong></h4>
                     </div>
                 </div>
             </div>

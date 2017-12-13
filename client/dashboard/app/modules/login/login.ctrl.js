@@ -3,7 +3,6 @@ define([
 ], function (loginSrv) {
 
     function loginCtrl($state, $stateParams, $timeout, $uibModal, Restangular, $window, $sce, $scope) {
-        // function loginCtrl() {
         var vm = this;
         var loginHelper = loginSrv(Restangular);    
         var $cookies;
@@ -15,8 +14,7 @@ define([
 
         var user = $cookies.get("OrderAppUser");
         if(user) {
-            // console.log(user, "user");
-            // $state.go();
+            $state.go('home.products');
         }
 
         vm.authUser = function() {
@@ -26,10 +24,11 @@ define([
                     if(!response.status) {
                         console.log(response.message);
                         vm.userErr = true;
+                        return false;
                     }
                     var user = response.data;
                     $cookies.put("OrderAppUser", JSON.stringify(user));
-                        // $state.go('home', {});
+                        $state.go('home.products', {});
                 });
             } else {
                 vm.userErr = true;

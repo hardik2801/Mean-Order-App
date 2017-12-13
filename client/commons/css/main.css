@@ -32,4 +32,15 @@
 .products-rep {
   cursor: pointer; }
 
+.noproduct {
+  text-align: center; }
+
+.add-customer {
+  display: inline-block;
+  margin-left: 37%; }
+
+.custname {
+  display: block;
+  margin-top: 5px; }
+
 /*# sourceMappingURL=main.css.map */

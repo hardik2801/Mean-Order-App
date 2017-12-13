@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * Meant to log exceptions which are handled
- */
 function responseError(err){
 	return {
 		status : false,

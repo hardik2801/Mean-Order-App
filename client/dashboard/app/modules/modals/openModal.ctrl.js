@@ -2,12 +2,26 @@ define([
     'productsSrv',
 ], function (productsSrv){
     
-    function ctrl(Restangular, $uibModalInstance, $window, product){        
+    function ctrl(Restangular, $uibModalInstance, $window, product, mainCart){        
         var vm = this;
         
         var productsHelper = productsSrv(Restangular);
-        
-        console.log(product, "product");
+
+        var $cookies;
+        angular.injector(['ngCookies']).invoke(['$cookies', function(_$cookies_) {
+          $cookies = _$cookies_;
+        }]);
+
+        var user = $cookies.get("OrderAppUser");
+        if(!user) {
+            $state.go('login');    
+        }
+        vm.product = product;
+        vm.selectSize = function(size) {
+            $uibModalInstance.dismiss();
+        };
+
+
 
         vm.cancel = function (){
             $uibModalInstance.dismiss();

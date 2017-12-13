@@ -7,17 +7,6 @@ define([
     function routes($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider
-            // .state('home', {
-            //     // abstract: true,
-            //     url: '',
-            //     views: {
-            //         'content' : {
-            //             templateUrl : moduleFactory.login.templateUrl,
-            //             controller : moduleFactory.login.controller,
-            //             controllerAs : moduleFactory.login.controllerAs
-            //         }
-            //     }
-            // });
             .state('home', {
                 // abstract : true,
                 url : '',
@@ -33,31 +22,22 @@ define([
                         controllerAs : compFactory.footer.controllerAs,
                     },
                     'content' : {
-                        // template : '<div ui-view="layout" class="container content-container"></div>'
-                        // templateUrl : moduleFactory.login.templateUrl,
-                        // controller : moduleFactory.login.controller,
-                        // controllerAs : moduleFactory.login.controllerAs
-
-                        templateUrl : moduleFactory.products.templateUrl,
-                        controller : moduleFactory.products.controller,
-                        controllerAs : moduleFactory.products.controllerAs
+                        template : '<div ui-view="layout" class="container content-container"></div>'
                     }
                 }
             })
             .state('home.products', {
                 url : '/products',
-                // abstract : true,
                 views : {
-                    'content' : {
+                    'layout@home' : {
                         templateUrl : moduleFactory.products.templateUrl,
                         controller : moduleFactory.products.controller,
                         controllerAs : moduleFactory.products.controllerAs
                     }
                 }
             })
-            .state('home.login', {
+            .state('login', {
                 url : '/login',
-                // abstract : true,
                 views : {
                     'content' : {
                         templateUrl : moduleFactory.login.templateUrl,
@@ -68,12 +48,11 @@ define([
             })
             .state('home.cart', {
                 url : '/cart',
-                // abstract : true,
                 views : {
-                    'content' : {
-                        templateUrl : moduleFactory.login.templateUrl,
-                        controller : moduleFactory.login.controller,
-                        controllerAs : moduleFactory.login.controllerAs
+                    'layout@home' : {
+                        templateUrl : moduleFactory.cart.templateUrl,
+                        controller : moduleFactory.cart.controller,
+                        controllerAs : moduleFactory.cart.controllerAs
                     }
                 }
             })
@@ -81,36 +60,13 @@ define([
                 url : '/orders',
                 // abstract : true,
                 views : {
-                    'content' : {
-                        templateUrl : moduleFactory.login.templateUrl,
-                        controller : moduleFactory.login.controller,
-                        controllerAs : moduleFactory.login.controllerAs
+                    'layout@home' : {
+                        templateUrl : moduleFactory.orders.templateUrl,
+                        controller : moduleFactory.orders.controller,
+                        controllerAs : moduleFactory.orders.controllerAs
                     }
                 }
             });
-            // .state('home.orders', {
-            //     url : '/influencers/:id', //:id
-            //     abstract : true,
-            //     views : {
-            //         'layout@home' : {
-            //             templateUrl : moduleFactory.deepdive.templateUrl,
-            //             controller : moduleFactory.deepdive.controller,
-            //             controllerAs : moduleFactory.deepdive.controllerAs,
-            //         }
-            //     }
-            // })
-            // .state('home.checkout', {
-            //     url : '/influencers/:id', //:id
-            //     abstract : true,
-            //     views : {
-            //         'layout@home' : {
-            //             templateUrl : moduleFactory.deepdive.templateUrl,
-            //             controller : moduleFactory.deepdive.controller,
-            //             controllerAs : moduleFactory.deepdive.controllerAs,
-            //         }
-            //     }
-            // });
-            
     }
 
     routes.$inject = ['$stateProvider', '$urlRouterProvider'];
